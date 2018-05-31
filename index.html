@@ -37,15 +37,15 @@
         //  console.log("DATA: " + data);
         //  return data;
         //});
-        return firebase.database().ref('inc').once("value").then(function(snapshot) {
-          window.cInc = snapshot.val().inc;
+        return firebase.database().ref('/inc').once("value").then(function(snapshot) {
+          window.cInc = snapshot.val();
         });
       }
       function writeUserData() {
         //window.cInc = getInc() + 1;
         getInc();
         window.cInc += 1;
-        firebase.database().ref('inc').set({"inc" : window.cInc});
+        firebase.database().ref('/inc').set(window.cInc);
       }
     </script>
     
