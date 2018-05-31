@@ -33,14 +33,15 @@
       var database = firebase.database();
       var cInc;
       function getInc() {
-        $.get("https://mygithubmain.firebaseio.com/inc", function(data){
-          console.log("DATA: " + data);
-          return data;
-        });
+        //$.get("https://mygithubmain.firebaseio.com/inc", function(data){
+        //  console.log("DATA: " + data);
+        //  return data;
+        //});
+        return firebase.database().ref('mygithubmain/inc').once()
       }
       function writeUserData() {
         window.cInc = getInc() + 1;
-        firebase.database().ref().child('mygithubmain').set(window.cInc);
+        firebase.database().ref('mygithubmain/inc').set(window.cInc);
       }
     </script>
     
