@@ -46,9 +46,17 @@
         <th>Label #2</th>
       </tr>
       <tr>
-        <td><script>documnet.write(window.cInc + "");</script></td>
+        <td id="incDisp"></td>
         <td>Cell Value</td>
       </tr>
     </table>
+    <script>
+      var incDisp = document.getElementById('incDisp');
+      function updateInc() {
+        writeUserData();
+        window.incDisp.innerHTML = window.cInc+"";
+      }
+      incDisp.addEventListener('click','updateInc()');
+    </script>
   </body>
 </html>
