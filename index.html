@@ -45,7 +45,7 @@
         //window.cInc = getInc() + 1;
         getInc();
         window.cInc += 1;
-        firebase.database().ref('inc').set(window.cInc);
+        firebase.database().ref('inc').set({"inc" : window.cInc});
       }
     </script>
     
