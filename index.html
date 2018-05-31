@@ -11,6 +11,34 @@
     </style>
   </head>
   <body>
+    <!-- The following Scripts must exist before any other -->    
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAt2opbVFqoootT17Jz8kTv8v1lWG0XiHg",
+        authDomain: "mygithubmain.firebaseapp.com",
+        databaseURL: "https://mygithubmain.firebaseio.com",
+        projectId: "mygithubmain",
+        storageBucket: "",
+        messagingSenderId: "46969569312"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <!-- End Script Order Restrictions -->
+    <script>
+      var database = firebase.database();
+      var cInc;
+      function getInc() {
+        return firebase.database().ref('/inc/').once();
+      }
+      function writeUserData() {
+        window.cInc = getInc() + 1;
+        firebase.database().ref('inc/').set(window.cInc);
+      }
+    </script>
+    
     <h1>Just Testing</h1>
     <table>
       <tr>
@@ -18,7 +46,7 @@
         <th>Label #2</th>
       </tr>
       <tr>
-        <td>Cell Value</td>
+        <td><script>documnet.write(window.cInc + "");</script></td>
         <td>Cell Value</td>
       </tr>
     </table>
