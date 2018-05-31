@@ -37,7 +37,7 @@
         //  console.log("DATA: " + data);
         //  return data;
         //});
-        return firebase.database().ref('mygithubmain/inc').once()
+        return firebase.database().ref('mygithubmain/').once('inc');
       }
       function writeUserData() {
         window.cInc = getInc() + 1;
