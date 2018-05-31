@@ -36,7 +36,7 @@
       }
       function writeUserData() {
         window.cInc = getInc() + 1;
-        firebase.database().ref('inc/').set(window.cInc);
+        firebase.database().ref('/inc/').set(window.cInc);
       }
     </script>
     
