@@ -28,11 +28,15 @@
       firebase.initializeApp(config);
     </script>
     <!-- End Script Order Restrictions -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
       var database = firebase.database();
       var cInc;
       function getInc() {
-        return firebase.database().ref().child('inc').once();
+        $.get("https://mygithubmain.firebaseio.com/inc", function(data){
+          console.log("DATA: " + data);
+          return data;
+        });
       }
       function writeUserData() {
         window.cInc = getInc() + 1;
