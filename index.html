@@ -32,11 +32,11 @@
       var database = firebase.database();
       var cInc;
       function getInc() {
-        return firebase.database().ref('/inc/').once();
+        return firebase.database().ref().child('inc').once();
       }
       function writeUserData() {
         window.cInc = getInc() + 1;
-        firebase.database().ref('/inc/').set(window.cInc);
+        firebase.database().ref().child('mygithubmain').set(window.cInc);
       }
     </script>
     
